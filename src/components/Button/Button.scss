@@ -1,0 +1,14 @@
+@import '../../scss/variables.scss';
+
+.button {
+  min-height: 40px;
+  font-size: 1.5rem;
+  min-width: 300px;
+  border-radius: 25px;
+  background-color: limegreen;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
