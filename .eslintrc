@@ -14,9 +14,7 @@
   },
   "rules": {
     "object-curly-spacing": ["warn", "always"],
-    "@typescript-eslint/semi": [
-      "error"
-    ],
+    "@typescript-eslint/semi": ["error"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
