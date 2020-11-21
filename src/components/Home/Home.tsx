@@ -1,10 +1,15 @@
-import React from 'react';
-import logo from '../../images/logo-placeholder.png';
+import React, { useState } from 'react';
+
 import { ButtonType } from '../../types';
 import { Button } from '../Button/Button';
 import { Footer } from '../Footer/Footer';
+import { Game } from '../Game/Game';
+
+import logo from '../../images/logo-placeholder.png';
+import { randomQuestionURL } from '../../constants';
 
 export const Home = (): JSX.Element => {
+  const [game, setGame] = useState<boolean>(false);
   return (
     <div className="home">
       <div className="home__logo">
@@ -14,7 +19,7 @@ export const Home = (): JSX.Element => {
         <Button
           text="play"
           subtext="10 random questions"
-          action={(): void => console.log('play')}
+          action={(): void => setGame(true)}
           type={ButtonType.BUTTON}
         />
         <Button
@@ -33,6 +38,7 @@ export const Home = (): JSX.Element => {
       <div className="home__footer">
         <Footer />
       </div>
+      {game && <Game url={randomQuestionURL} />}
     </div>
   );
 };
