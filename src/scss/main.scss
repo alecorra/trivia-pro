@@ -8,4 +8,8 @@
 
 body {
   font-family: Roboto, Arial, sans-serif;
+  background-color: $black-background;
 }
+
+// common
+@import '../components/Button/Button.scss';
