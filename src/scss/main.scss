@@ -11,5 +11,6 @@ body {
   background-color: $black-background;
 }
 
-// common
+// common components
 @import '../components/Button/Button.scss';
+@import '../components/Footer/Footer.scss';
