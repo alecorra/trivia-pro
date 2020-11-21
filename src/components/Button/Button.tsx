@@ -4,16 +4,18 @@ import { ButtonType } from '../../types';
 
 export interface ButtonProps {
   text: string;
+  subtext?: string;
   action(): void;
   type?: ButtonType;
 }
 
 export const Button = (props: ButtonProps): JSX.Element => {
-  const { text, action, type } = props;
+  const { text, subtext, action, type } = props;
 
   return (
     <button className="button" onClick={action} type={type}>
-      {capitalize.words(text)}
+      <p className="button__text">{capitalize.words(text)}</p>
+      {subtext && <p className="button__subtext"> - {subtext.toLowerCase()} - </p>}
     </button>
   );
 };

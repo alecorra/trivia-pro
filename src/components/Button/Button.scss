@@ -1,13 +1,22 @@
 .button {
+  padding: 5px;
   min-height: 40px;
-  font-size: 1.5rem;
   min-width: 300px;
-  border-radius: 25px;
+  border-radius: 50px;
   background-color: $light-blue;
   border: 2px solid $white;
   color: $white;
   text-shadow: 0 0 5px $black;
   cursor: pointer;
+
+  &__text {
+    font-size: 1.5rem;
+  }
+
+  &__subtext {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
 
   &:focus {
     outline: none;

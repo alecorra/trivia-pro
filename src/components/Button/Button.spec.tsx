@@ -5,6 +5,7 @@ import { ButtonType } from '../../types';
 
 const mocksProps: ButtonProps = {
   text: 'test button',
+  subtext: 'subtext',
   action: jest.fn(),
   type: ButtonType.BUTTON,
 };
@@ -14,7 +15,8 @@ const wrapper = shallow(<Button {...mocksProps} />);
 describe('Button component', () => {
   it('renders with props', () => {
     expect(wrapper.find('.button').exists()).toBe(true);
-    expect(wrapper.find('.button').text()).toBe('Test Button');
+    expect(wrapper.find('.button__text').text()).toBe('Test Button');
+    expect(wrapper.find('.button__subtext').text()).toBe(' - subtext - ');
     expect(wrapper.type()).toBe(mocksProps.type);
   });
 
