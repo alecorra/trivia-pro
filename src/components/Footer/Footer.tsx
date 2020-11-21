@@ -17,7 +17,7 @@ export const Footer = (): JSX.Element => {
         </a>
       </p>
       <p className="footer__code">
-        Souce code&nbsp;
+        Source code&nbsp;
         <a href="https://github.com/alecorra/trivia-pro" target="_blank" rel="noreferrer">
           here
         </a>

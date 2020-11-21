@@ -24,8 +24,7 @@ export const Home = (): JSX.Element => {
           type={ButtonType.BUTTON}
         />
         <Button
-          text="add your question"
-          subtext="suggest your questions"
+          text="add new question"
           action={(): void => console.log('add')}
           type={ButtonType.BUTTON}
         />
