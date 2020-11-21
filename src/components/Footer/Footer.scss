@@ -1,0 +1,14 @@
+@import '../../scss/variables.scss';
+
+.footer {
+  padding: 20px;
+
+  p {
+    margin-top: 10px;
+    color: $silver-footer;
+  }
+
+  a {
+    color: $silver-footer;
+  }
+}
