@@ -1,0 +1,37 @@
+.answers {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $light-blue;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 40px;
+  margin-top: 10px;
+
+  &__button {
+    font-size: 1.3rem;
+  }
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.correct {
+  background-color: $green-answer;
+  color: $white;
+  border: 3px solid $white;
+  text-shadow: unset;
+}
+
+.wrong {
+  background-color: $red-answer;
+  color: $black;
+  border: 3px solid $black;
+  text-shadow: unset;
+}

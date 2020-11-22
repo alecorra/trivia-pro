@@ -6,6 +6,7 @@ import response from '../../response.json';
 // import { fetchQuestions } from '../../services/questions';
 import { Counter } from '../Counter/Counter';
 import { Question } from '../Question/Question';
+import { Answers } from '../Answers/Answers';
 
 export interface GameProps {
   url: string;
@@ -38,6 +39,12 @@ export const Game = (props: GameProps): JSX.Element => {
     <div className="game">
       <Counter counter={counter} questionsAmount={questions.length} />
       {questions.length && <Question question={questions[counter].question} />}
+      {questions.length && (
+        <Answers
+          correctAnswer={questions[counter].correct_answer}
+          incorrectAnswers={questions[counter].incorrect_answers}
+        />
+      )}
     </div>
   );
 };
