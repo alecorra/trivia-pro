@@ -15,7 +15,7 @@ export const Game = (props: GameProps): JSX.Element => {
   const { url } = props;
   const [status, setStatus] = useState<Status>(Status.INITIAL);
   const [questions, setQuestions] = useState<Questions>([]);
-  const [counter, setCounter] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(9);
 
   useEffect(() => {
     // const getQuestions = async (): Promise<void> => {

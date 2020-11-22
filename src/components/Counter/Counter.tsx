@@ -12,7 +12,7 @@ export const Counter = (props: CounterProps): JSX.Element => {
       <div className="counter__questions">
         <p className="counter__questions-question">question</p>
         <p className="counter__questions-current">
-          {counter} / {questionsAmount}
+          {counter + 1} / {questionsAmount}
         </p>
       </div>
     </div>
