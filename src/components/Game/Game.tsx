@@ -5,6 +5,7 @@ import { Questions, Status } from '../../types/game';
 import response from '../../response.json';
 // import { fetchQuestions } from '../../services/questions';
 import { Counter } from '../Counter/Counter';
+import { Question } from '../Question/Question';
 
 export interface GameProps {
   url: string;
@@ -17,7 +18,8 @@ export const Game = (props: GameProps): JSX.Element => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
-    const getQuestions = async (): Promise<void> => {
+    // const getQuestions = async (): Promise<void> => {
+    const getQuestions = (): void => {
       setStatus(Status.LOADING);
       try {
         // const questionsResponse = await fetchQuestions(url);
@@ -30,13 +32,12 @@ export const Game = (props: GameProps): JSX.Element => {
     };
 
     getQuestions();
-  }, [url]);
+  }, []);
 
   return (
     <div className="game">
-      <div className="game__counters">
-        <Counter counter={counter} questionsAmount={questions.length} />
-      </div>
+      <Counter counter={counter} questionsAmount={questions.length} />
+      {questions.length && <Question question={questions[counter].question} />}
     </div>
   );
 };
