@@ -1,7 +1,10 @@
+// REMEMBER TO REMOVE IT AT THE END!!!
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Questions, Status } from '../../types/game';
 import response from '../../response.json';
 // import { fetchQuestions } from '../../services/questions';
+import { Counter } from '../Counter/Counter';
 
 export interface GameProps {
   url: string;
@@ -11,7 +14,7 @@ export const Game = (props: GameProps): JSX.Element => {
   const { url } = props;
   const [status, setStatus] = useState<Status>(Status.INITIAL);
   const [questions, setQuestions] = useState<Questions>([]);
-  // const [counter, setCounter] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
     const getQuestions = async (): Promise<void> => {
@@ -31,10 +34,9 @@ export const Game = (props: GameProps): JSX.Element => {
 
   return (
     <div className="game">
-      {questions.map((question) => (
-        <h1 key={question.correct_answer}>{question.question}</h1>
-      ))}
-      <p>{status}</p>
+      <div className="game__counters">
+        <Counter counter={counter} questionsAmount={questions.length} />
+      </div>
     </div>
   );
 };

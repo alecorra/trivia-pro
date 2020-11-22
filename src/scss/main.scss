@@ -11,6 +11,7 @@ body {
   background-color: $black-background;
 }
 
-// common components
+// atom components
 @import '../components/Button/Button.scss';
 @import '../components/Footer/Footer.scss';
+@import '../components/Counter/Counter.scss';

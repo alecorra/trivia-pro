@@ -1,0 +1,23 @@
+.counter {
+  border: 1px solid $yellow-counter;
+  border-radius: 5px;
+  padding: 5px;
+
+  &__questions {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid $yellow-counter;
+    border-radius: 5px;
+    padding: 5px;
+    color: $white-text;
+
+    &-question {
+      font-size: 0.7rem;
+    }
+
+    &-current {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+  }
+}
