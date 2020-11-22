@@ -5,10 +5,12 @@ import { shuffle } from '../../utils/array';
 export interface AnswersProps {
   correctAnswer: string;
   incorrectAnswers: Array<string>;
+  counter: number;
+  setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const Answers = (props: AnswersProps): JSX.Element => {
-  const { correctAnswer, incorrectAnswers } = props;
+  const { correctAnswer, incorrectAnswers, counter, setCounter } = props;
   const answers = shuffle([...incorrectAnswers, correctAnswer]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -51,7 +53,7 @@ export const Answers = (props: AnswersProps): JSX.Element => {
       //   endgameHandler(true);
       // }
 
-      // setCounter(counterIncrement);
+      setCounter(counter + 1);
     }, 4000);
   };
 
