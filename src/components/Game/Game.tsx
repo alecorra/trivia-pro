@@ -17,6 +17,7 @@ export const Game = (props: GameProps): JSX.Element => {
   const [status, setStatus] = useState<Status>(Status.INITIAL);
   const [questions, setQuestions] = useState<Questions>([]);
   const [counter, setCounter] = useState<number>(0);
+  const [correctAnswerNumber, setCorrectAnswerNumber] = useState<number>(0);
 
   useEffect(() => {
     // const getQuestions = async (): Promise<void> => {
@@ -37,7 +38,11 @@ export const Game = (props: GameProps): JSX.Element => {
 
   return (
     <div className="game">
-      <Counter counter={counter} questionsAmount={questions.length} />
+      <Counter
+        counter={counter}
+        questionsAmount={questions.length}
+        correctAnswerNumber={correctAnswerNumber}
+      />
       {questions.length && <Question question={questions[counter].question} />}
       {questions.length && (
         <Answers
@@ -45,6 +50,8 @@ export const Game = (props: GameProps): JSX.Element => {
           incorrectAnswers={questions[counter].incorrect_answers}
           counter={counter}
           setCounter={setCounter}
+          correctAnswerNumber={correctAnswerNumber}
+          setCorrectAnswerNumber={setCorrectAnswerNumber}
         />
       )}
     </div>

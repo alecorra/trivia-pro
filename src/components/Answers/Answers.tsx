@@ -7,10 +7,19 @@ export interface AnswersProps {
   incorrectAnswers: Array<string>;
   counter: number;
   setCounter: React.Dispatch<React.SetStateAction<number>>;
+  correctAnswerNumber: number;
+  setCorrectAnswerNumber: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const Answers = (props: AnswersProps): JSX.Element => {
-  const { correctAnswer, incorrectAnswers, counter, setCounter } = props;
+  const {
+    correctAnswer,
+    incorrectAnswers,
+    counter,
+    setCounter,
+    correctAnswerNumber,
+    setCorrectAnswerNumber,
+  } = props;
   const answers = shuffle([...incorrectAnswers, correctAnswer]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,30 +40,23 @@ export const Answers = (props: AnswersProps): JSX.Element => {
           button.classList.add('wrong');
         }
       });
-    }, 2000);
 
-    setTimeout(() => {
-      buttons.forEach((button) => {
-        if (button.classList.value.search('correct') >= 0) {
-          button.classList.remove('correct');
-        } else {
-          button.classList.remove('wrong');
+      setTimeout(() => {
+        buttons.forEach((button) => {
+          if (button.classList.value.search('correct') >= 0) {
+            button.classList.remove('correct');
+          } else {
+            button.classList.remove('wrong');
+          }
+        });
+
+        if (selectedAnswer?.textContent === he.decode(correctAnswer)) {
+          setCorrectAnswerNumber(correctAnswerNumber + 1);
         }
-      });
 
-      if (selectedAnswer?.textContent === he.decode(correctAnswer)) {
-        // const count = rightAnswersCounter + 1;
-        // setRightAnswersCounter(count);
-        console.log('correct answer!');
-      }
-
-      // const counterIncrement = counter + 1;
-      // if (counterIncrement === numberOfQuestions) {
-      //   endgameHandler(true);
-      // }
-
-      setCounter(counter + 1);
-    }, 4000);
+        setCounter(counter + 1);
+      }, 2000);
+    }, 2000);
   };
 
   return (
@@ -65,7 +67,9 @@ export const Answers = (props: AnswersProps): JSX.Element => {
             className="answers__button button"
             key={i + 1}
             id={(i + 1).toString()}
-            onClick={(e) => clickHandler(e)}
+            onClick={(
+              e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+            ): void => clickHandler(e)}
           >
             {he.decode(answer)}
           </button>
