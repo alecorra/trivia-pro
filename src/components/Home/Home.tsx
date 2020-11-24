@@ -33,12 +33,16 @@ export const Home = (): JSX.Element => {
           action={(): void => console.log('add')}
           type={ButtonType.BUTTON}
         />
-        <Button text="login" action={(): void => console.log('login')} type={ButtonType.BUTTON} />
+        <Button
+          text="login"
+          action={(): void => console.log('login')}
+          type={ButtonType.BUTTON}
+        />
       </div>
       <div className="home__footer">
         <Footer />
       </div>
-      {game && <Game url={randomQuestionURL} />}
+      {game && <Game url={randomQuestionURL} setGame={setGame} />}
     </div>
   );
 };

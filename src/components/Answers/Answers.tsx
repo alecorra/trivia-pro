@@ -9,6 +9,8 @@ export interface AnswersProps {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
   correctAnswerNumber: number;
   setCorrectAnswerNumber: React.Dispatch<React.SetStateAction<number>>;
+  numberOfQuestions: number;
+  setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Answers = (props: AnswersProps): JSX.Element => {
@@ -19,6 +21,8 @@ export const Answers = (props: AnswersProps): JSX.Element => {
     setCounter,
     correctAnswerNumber,
     setCorrectAnswerNumber,
+    numberOfQuestions,
+    setGameOver,
   } = props;
   const answers = shuffle([...incorrectAnswers, correctAnswer]);
 
@@ -54,7 +58,11 @@ export const Answers = (props: AnswersProps): JSX.Element => {
           setCorrectAnswerNumber(correctAnswerNumber + 1);
         }
 
-        setCounter(counter + 1);
+        if (counter + 1 < numberOfQuestions) {
+          setCounter(counter + 1);
+        } else {
+          setGameOver(true);
+        }
       }, 2000);
     }, 2000);
   };
