@@ -62,7 +62,11 @@ export const Game = (props: GameProps): JSX.Element => {
         />
       )}
       {gameOver && (
-        <GameOver setGame={setGame} correctAnswerNumber={correctAnswerNumber} />
+        <GameOver
+          setGame={setGame}
+          correctAnswerNumber={correctAnswerNumber}
+          questionsAmount={questions.length}
+        />
       )}
     </div>
   );

@@ -34,6 +34,11 @@ export const Answers = (props: AnswersProps): JSX.Element => {
 
     selectedAnswer?.classList.add('blink');
 
+    // click just once
+    buttons.forEach((button) => {
+      button.setAttribute('disabled', 'true');
+    });
+
     setTimeout(() => {
       selectedAnswer?.classList.remove('blink');
 
@@ -52,6 +57,9 @@ export const Answers = (props: AnswersProps): JSX.Element => {
           } else {
             button.classList.remove('wrong');
           }
+
+          // https://stackoverflow.com/questions/7526601/setattributedisabled-false-changes-editable-attribute-to-false
+          button.removeAttribute('disabled');
         });
 
         if (selectedAnswer?.textContent === he.decode(correctAnswer)) {

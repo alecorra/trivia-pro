@@ -1,4 +1,28 @@
 .gameover {
-  background-color: white;
-  color: black;
+  color: $white-text;
+  border: 1px solid $light-blue;
+  border-radius: 5px;
+  height: 80vh;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  &__message {
+    font-size: 2rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+  }
+
+  &__emoji {
+    font-size: 5rem;
+  }
+
+  &__button {
+    font-size: 1.3rem;
+  }
 }
