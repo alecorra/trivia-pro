@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGameOverMessage, GameOverMessage } from '../../utils/messages';
+import { createGameOverMessage, GameOverMessage } from '../../utils/string';
 
 export interface GameOverProps {
   correctAnswerNumber: number;
