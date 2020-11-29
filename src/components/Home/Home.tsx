@@ -5,6 +5,7 @@ import { Button } from '../Button/Button';
 import { Footer } from '../Footer/Footer';
 import { Game } from '../Game/Game';
 import { CustomQuestions } from '../CustomQuestions/CustomQuestions';
+import { ServiceNotAvailable } from '../ServiceNotAvailable/ServiceNotAvailable';
 
 import logo from '../../images/logo-placeholder.png';
 import { randomQuestionURL } from '../../constants';
@@ -13,6 +14,13 @@ export const Home = (): JSX.Element => {
   const [game, setGame] = useState<boolean>(false);
   const [url, setUrl] = useState<string>('');
   const [custom, setCustom] = useState<boolean>(false);
+  const [serviceIsAvailable, setServiceIsAvailable] = useState<boolean>(true);
+
+  if (!serviceIsAvailable) {
+    return (
+      <ServiceNotAvailable setServiceIsAvailable={setServiceIsAvailable} />
+    );
+  }
 
   return (
     <div className="home">
@@ -40,13 +48,13 @@ export const Home = (): JSX.Element => {
             <Button
               text="add new question"
               subtext="not available in beta version"
-              action={(): void => console.log('Unavailable in beta version')}
+              action={(): void => setServiceIsAvailable(false)}
               type={ButtonType.BUTTON}
             />
             <Button
               text="login"
               subtext="not available in beta version"
-              action={(): void => console.log('Unavailable in beta version')}
+              action={(): void => setServiceIsAvailable(false)}
               type={ButtonType.BUTTON}
             />
           </div>
