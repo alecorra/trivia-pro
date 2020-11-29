@@ -2,12 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Questions, Status } from '../../types/game';
-import response from '../../response.json';
-// import { fetchQuestions } from '../../services/questions';
+import { fetchQuestions } from '../../services/questions';
 import { Counter } from '../Counter/Counter';
 import { Question } from '../Question/Question';
 import { Answers } from '../Answers/Answers';
 import { GameOver } from '../GameOver/GameOver';
+import { Loading } from '../Loading/Loading';
 
 export interface GameProps {
   url: string;
@@ -23,12 +23,10 @@ export const Game = (props: GameProps): JSX.Element => {
   const [gameOver, setGameOver] = useState<boolean>(false);
 
   useEffect(() => {
-    // const getQuestions = async (): Promise<void> => {
-    const getQuestions = (): void => {
+    const getQuestions = async (): Promise<void> => {
       setStatus(Status.LOADING);
       try {
-        // const questionsResponse = await fetchQuestions(url);
-        const questionsResponse = response.results;
+        const questionsResponse = await fetchQuestions(url);
         setQuestions(questionsResponse);
         setStatus(Status.RESOLVED);
       } catch (e) {
@@ -39,13 +37,19 @@ export const Game = (props: GameProps): JSX.Element => {
     getQuestions();
   }, [url]);
 
+  if (status === Status.LOADING) {
+    return <Loading />;
+  }
+
   return (
     <div className="game">
-      <Counter
-        counter={counter}
-        questionsAmount={questions.length}
-        correctAnswerNumber={correctAnswerNumber}
-      />
+      {questions.length && (
+        <Counter
+          counter={counter}
+          questionsAmount={questions.length}
+          correctAnswerNumber={correctAnswerNumber}
+        />
+      )}
       {questions.length && !gameOver && (
         <Question question={questions[counter].question} />
       )}
