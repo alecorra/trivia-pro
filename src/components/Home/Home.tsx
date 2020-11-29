@@ -39,12 +39,14 @@ export const Home = (): JSX.Element => {
             />
             <Button
               text="add new question"
-              action={(): void => console.log('add')}
+              subtext="not available in beta version"
+              action={(): void => console.log('Unavailable in beta version')}
               type={ButtonType.BUTTON}
             />
             <Button
               text="login"
-              action={(): void => console.log('login')}
+              subtext="not available in beta version"
+              action={(): void => console.log('Unavailable in beta version')}
               type={ButtonType.BUTTON}
             />
           </div>

@@ -8,6 +8,7 @@ import { Question } from '../Question/Question';
 import { Answers } from '../Answers/Answers';
 import { GameOver } from '../GameOver/GameOver';
 import { Loading } from '../Loading/Loading';
+import { Rejected } from '../Rejected/Rejected';
 
 export interface GameProps {
   url: string;
@@ -18,7 +19,7 @@ export const Game = (props: GameProps): JSX.Element => {
   const { url, setGame } = props;
   const [status, setStatus] = useState<Status>(Status.INITIAL);
   const [questions, setQuestions] = useState<Questions>([]);
-  const [counter, setCounter] = useState<number>(9);
+  const [counter, setCounter] = useState<number>(0);
   const [correctAnswerNumber, setCorrectAnswerNumber] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
@@ -39,6 +40,10 @@ export const Game = (props: GameProps): JSX.Element => {
 
   if (status === Status.LOADING) {
     return <Loading />;
+  }
+
+  if (status === Status.REJECTED) {
+    return <Rejected setGame={setGame} />;
   }
 
   return (
