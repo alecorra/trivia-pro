@@ -1,3 +1,5 @@
+import { baseQuestionsURL } from '../constants/urls';
+
 export interface GameOverMessage {
   message: string;
   emoji: string;
@@ -32,4 +34,19 @@ export const createGameOverMessage = (
     message: 'PERFECT!!!',
     emoji: '🤓',
   };
+};
+
+export const urlBuilder = (
+  amount: string,
+  category: string,
+  difficulty: string,
+  type: string,
+): string => {
+  const baseUrl = baseQuestionsURL;
+  const categoryCheck = category !== 'any' ? `&category=${category}` : '';
+  const difficultyCheck =
+    difficulty !== 'any' ? `&difficulty=${difficulty}` : '';
+  const typeCheck = type !== 'any' ? `&type=${type}` : '';
+  const finalUrl = `${baseUrl}?amount=${amount}${categoryCheck}${difficultyCheck}${typeCheck}`;
+  return finalUrl;
 };
