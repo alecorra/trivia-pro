@@ -11,6 +11,10 @@
       margin-top: 50px;
     }
   }
+
+  @media (min-width: $breakpoint-m) {
+    width: 60%;
+  }
 }
 
 .form-button {

@@ -7,7 +7,7 @@ import { Game } from '../Game/Game';
 import { CustomQuestions } from '../CustomQuestions/CustomQuestions';
 import { ServiceNotAvailable } from '../ServiceNotAvailable/ServiceNotAvailable';
 
-import logo from '../../images/logo-placeholder.png';
+import logo from '../../images/trivia-pro-logo.png';
 import { randomQuestionURL } from '../../constants';
 
 export const Home = (): JSX.Element => {

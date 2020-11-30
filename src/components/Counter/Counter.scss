@@ -22,4 +22,18 @@
       font-size: 1.2rem;
     }
   }
+
+  @media screen and (min-width: $breakpoint-m) {
+    &__questions,
+    &__correct {
+      &-description {
+        font-size: 1.2rem;
+      }
+
+      &-content {
+        margin-top: 10px;
+        font-size: 1.9rem;
+      }
+    }
+  }
 }

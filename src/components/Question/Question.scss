@@ -11,4 +11,12 @@
     letter-spacing: 0.5px;
     word-spacing: 2px;
   }
+
+  @media screen and (min-width: $breakpoint-m) {
+    margin-top: 50px;
+
+    &__text {
+      font-size: 2rem;
+    }
+  }
 }

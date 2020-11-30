@@ -22,7 +22,21 @@
     outline: none;
   }
 
+  @media screen and (min-width: $breakpoint-m) {
+    max-width: 400px;
+  }
+
   @media (min-width: $breakpoint-l) {
+    max-width: 500px;
+
+    &__text {
+      font-size: 1.8rem;
+    }
+
+    &__subtext {
+      font-size: 1.1rem;
+    }
+
     &:hover {
       box-shadow: 0 12px 16px 0 $box-shadow-blue, 0 17px 50px 0 $box-shadow-blue;
     }

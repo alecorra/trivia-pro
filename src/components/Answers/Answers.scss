@@ -10,6 +10,16 @@
   &__button {
     font-size: 1.3rem;
   }
+
+  @media screen and (min-width: $breakpoint-m) {
+    align-items: center;
+    margin-top: 50px;
+    padding-bottom: 60px;
+
+    &__button {
+      font-size: 2rem;
+    }
+  }
 }
 
 .blink {
@@ -25,13 +35,13 @@
 .correct {
   background-color: $green-answer;
   color: $white;
-  border: 3px solid $white;
+  border: 2px solid $white;
   text-shadow: unset;
 }
 
 .wrong {
   background-color: $red-answer;
   color: $black;
-  border: 3px solid $black;
+  border: 2px solid $black;
   text-shadow: unset;
 }
