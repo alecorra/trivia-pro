@@ -1,10 +1,10 @@
 import React from 'react';
 
-export interface RejectedPorps {
+export interface RejectedProps {
   setGame: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Rejected = (props: RejectedPorps): JSX.Element => {
+export const Rejected = (props: RejectedProps): JSX.Element => {
   const { setGame } = props;
   return (
     <div className="rejected">
