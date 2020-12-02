@@ -1,12 +1,12 @@
 import React from 'react';
-import { Home } from '../Home/Home';
+import { TriviaPro } from '../TriviaPro/TriviaPro';
 
 import './App.scss';
 
 export const App = (): JSX.Element => {
   return (
     <div className="App">
-      <Home />
+      <TriviaPro />
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { ServiceNotAvailable } from '../ServiceNotAvailable/ServiceNotAvailable'
 import logo from '../../images/trivia-pro-logo.png';
 import { randomQuestionURL } from '../../constants';
 
-export const Home = (): JSX.Element => {
+export const TriviaPro = (): JSX.Element => {
   const [game, setGame] = useState<boolean>(false);
   const [url, setUrl] = useState<string>('');
   const [custom, setCustom] = useState<boolean>(false);
@@ -23,13 +23,13 @@ export const Home = (): JSX.Element => {
   }
 
   return (
-    <div className="home">
+    <div className="trivia-pro">
       {!game && !custom && (
         <>
-          <div className="home__logo">
-            <img className="home__logo-image" src={logo} alt="logo" />
+          <div className="trivia-pro__logo">
+            <img className="trivia-pro__logo-image" src={logo} alt="logo" />
           </div>
-          <div className="home__buttons">
+          <div className="trivia-pro__buttons">
             <Button
               text="play"
               subtext="10 random questions"
@@ -68,7 +68,7 @@ export const Home = (): JSX.Element => {
         />
       )}
       {!game && !custom && (
-        <div className="home__footer">
+        <div className="trivia-pro__footer">
           <Footer />
         </div>
       )}
