@@ -29,7 +29,6 @@ export const Game = (props: GameProps): JSX.Element => {
       try {
         const questionsResponse = await fetchQuestions(url);
         setQuestions(questionsResponse);
-        console.log(questions);
         setStatus(Status.RESOLVED);
       } catch (e) {
         setStatus(Status.REJECTED);
